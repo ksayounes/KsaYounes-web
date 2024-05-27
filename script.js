@@ -7,6 +7,3 @@ onload = () => {
   function navigateToSecondPage() {
     window.location.href = 'second-page.html';
 }
-function showBeautifulMessage() {
-  alert("You are beautiful!");
-}
