@@ -1,5 +1,4 @@
 body {
-    font-family: Arial, sans-serif;
     background-color: #00203f; /* Dark blue background */
     margin: 0;
     padding: 0;
@@ -79,7 +78,6 @@ section {
 }
 
 button {
-    --hover-shadows: 16px 16px 33px #6a87fe, -16px -16px 33px #71c4ed;
     --accent: rgb(255, 255, 255);
     font-weight: bold;
     letter-spacing: 0.1em;
@@ -91,20 +89,17 @@ button {
     padding: 1em 2em;
     transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
       letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s;
-    box-shadow: 13px 13px 10px #6e76a0, -13px -13px 10px #86a3c5;
-  }
+}
   
-  button:hover {
+button:hover {
     box-shadow: var(--hover-shadows);
-  }
-  
-  button:active {
+}
+
+button:active {
     box-shadow: var(--hover-shadows), var(--accent) 0px 0px 30px 5px;
     background-color: var(--accent);
     transform: scale(0.95);
-  }
-  
-  
+}
 
 @keyframes scaleButton {
     from {
@@ -118,7 +113,7 @@ button {
 }
 
 button.styled-button:hover {
-    background-color: #c4c4c4; /* Darker blue on hover */
+    background-color: #0051cb; /* Darker blue on hover */
     transform: scale(1.1);
 }
 
