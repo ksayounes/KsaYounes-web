@@ -60,26 +60,30 @@
 </head>
 <body>
     <header>
-        <h1>Younes's website</h1>
+        <h1>Younes's Website</h1>
     </header>
     
     <main>
         <section id="section1">
-            <h2>A message for you:</h2>
+            <h2>A Message for You:</h2>
             <p></p>
             <button class="styled-button" onclick="showBeautifulMessage()">🫶🏼</button>
         </section>
 
         <section id="section2">
-            <h2>A beautiful quote for you:</h2>
-            <p>We were not created to stay so make your soul a beautiful memory ❤</p>
+            <h2>A Beautiful Quote for You:</h2>
+            <p>We were not created to stay, so make your soul a beautiful memory ❤</p>
         </section>
 
         <section id="calculator">
-            <button class="styled-button" onclick="navigateToSecondPage()">Click here</button>
+            <button class="styled-button" onclick="navigateToSecondPage()">Click Here</button>
+        </section>
+
+        <section id="contact">
+            <button class="styled-button" onclick="navigateToContactPage()">اتصل بي</button>
         </section>
     </main>
-
+      
     <footer>
         <p>&copy; 2024 Younes Ksassoua</p>
     </footer>
@@ -116,7 +120,12 @@
                 closeModal();
             }
         }
+
+        function navigateToContactPage() {
+            window.location.href = 'ddd.html';
+        }
     </script>
     <script src="script.js"></script>
 </body>
 </html>
+
