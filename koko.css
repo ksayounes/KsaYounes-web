@@ -1,0 +1,106 @@
+/* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl; /* Right-to-left text direction */
+    text-align: right; /* Align text to the right */
+    background-color: #003366; /* Light gray background */
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Logo styling */
+.logo {
+    width: 200px; /* Adjust size as needed */
+    height: 200px; /* Match the width to create a square */
+    border: 2px solid #000000; /* Black border */
+    border-radius: 50%; /* Make it a circle */
+    padding: 5px; /* Add padding inside the border */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    display: block;
+    margin: 0 auto; /* Center the logo horizontally */
+    animation: logoMovement 2s ease infinite alternate; /* Animation for movement */
+}
+
+/* Keyframes for logo movement */
+@keyframes logoMovement {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+/* Main section styling */
+main {
+    padding: 20px;
+}
+
+/* Contact section styling */
+#contact {
+    background-color: #fff; /* White background */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+/* Heading styling */
+h2 {
+    margin-bottom: 20px;
+    color: #333; /* Dark gray text color */
+}
+
+/* Form label styling */
+label {
+    display: block; /* Display each label on a new line */
+    margin-bottom: 5px;
+}
+
+/* Input and textarea styling */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Button styling */
+.styled-button {
+    background-color: #007bff; /* Blue button color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.styled-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Keyframes for button movement */
+@keyframes buttonMovement {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(5px);
+    }
+}
