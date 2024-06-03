@@ -1,173 +1,222 @@
-body {
-    background-color: hsl(210, 100%, 12%); /* Dark blue background */
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    color: #ffffff; /* White text */
-    animation: fadeIn 1s ease-in-out forwards; /* Apply fade-in animation */
-    opacity: 0; /* Initially hide the content */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Modal background styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+            transition: opacity 0.3s ease;
+        }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0; /* Start with opacity 0 */
-    }
-    to {
-        opacity: 1; /* Gradually fade in to opacity 1 */
-    }
-}
+        /* Modal content styling */
+        .modal-content {
+            position: relative;
+            margin: 15% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            background-color: #fefefe;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-align: center;
+            animation: slideIn 0.5s forwards;
+            color: #000; /* Changed text color to black */
+            font-family: 'Playfair Display', serif; /* Changed font to Playfair Display */
+        }
 
-header {
-    background-color: #003366; /* Dark blue header */
-    color: #ffffff;
-    padding: 20px 0;
-    margin-bottom: 20px;
-    animation: slideInHeader 0.5s ease-in-out 0.5s forwards; /* Apply slide-in animation with delay */
-    opacity: 0; /* Initially hide the header */
-}
+        /* Slide-in animation */
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
 
-@keyframes slideInHeader {
-    from {
-        transform: translateY(-50px); /* Start offscreen */
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0); /* Slide down to original position */
-        opacity: 1;
-    }
-}
+        /* Close button styling */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 25px;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
 
-h1 {
-    margin: 0;
-}
+        .close:hover {
+            color: #ff0000;
+        }
 
-main {
-    padding: 20px;
-    animation: fadeInMain 1s ease-in-out 1s forwards; /* Apply fade-in animation with delay */
-    opacity: 0; /* Initially hide the main content */
-}
+        /* Slider container */
+        .slider-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
 
-@keyframes fadeInMain {
-    from {
-        opacity: 0; /* Start with opacity 0 */
-    }
-    to {
-        opacity: 1; /* Gradually fade in to opacity 1 */
-    }
-}
+        /* Slider switch */
+        .slider {
+            position: relative;
+            width: 60px;
+            height: 34px;
+        }
 
-section {
-    margin: 20px 0;
-    padding: 20px; /* Add padding */
-    animation: wave 5s infinite alternate; /* Apply wave animation */
-    background-image: linear-gradient(to bottom, #003366 0%, #00203f 100%); /* Dark blue to darker blue gradient */
-    border-radius: 10px; /* Add border-radius for rounded corners */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
-}
+        .slider input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
 
-@keyframes wave {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
+        .slider .slider-track {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
 
-button {
-    --accent: rgb(255, 255, 255);
-    font-weight: bold;
-    letter-spacing: 0.1em;
-    border: none;
-    border-radius: 1.1em;
-    background-color: #ffffff;
-    cursor: pointer;
-    color: rgb(0, 0, 0);
-    padding: 1em 2em;
-    transition: box-shadow ease-in-out 0.3s, background-color ease-in-out 0.1s,
-      letter-spacing ease-in-out 0.1s, transform ease-in-out 0.1s;
-}
-  
-button:hover {
-    box-shadow: var(--hover-shadows);
-}
+        .slider .slider-thumb {
+            position: absolute;
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
 
-button:active {
-    box-shadow: var(--hover-shadows), var(--accent) 0px 0px 30px 5px;
-    background-color: var(--accent);
-    transform: scale(0.95);
-}
+        input:checked + .slider-track {
+            background-color: #2196F3;
+        }
 
-@keyframes scaleButton {
-    from {
-        transform: scale(0.5); /* Start smaller */
-        opacity: 0;
-    }
-    to {
-        transform: scale(1); /* Scale to original size */
-        opacity: 1;
-    }
-}
+        input:checked + .slider-track .slider-thumb {
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Younes's Website</h1>
+        <button id="audioButton" onclick="toggleBackgroundAudio()"> </button>
+    </header>
 
-button.styled-button:hover {
-    background-color: #0051cb; /* Darker blue on hover */
-    transform: scale(1.1);
-}
+    <main>
+        <section id="section1">
+            <h2>A Message for You:</h2>
+            <p></p>
+            <button class="styled-button" onclick="showBeautifulMessage()">🫶🏼</button>
+        </section>
 
-button.styled-button:active {
-    transform: scale(0.9);
-}
+        <section id="section2">
+            <h2>A Beautiful Quote for You:</h2>
+            <p>We were not created to stay, so make your soul a beautiful memory ❤</p>
+        </section>
 
-footer {
-    background-color: #003366; /* Dark blue footer */
-    color: white;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    animation: fadeInFooter 1s ease-in-out 2.5s forwards; /* Apply fade-in animation with delay */
-    opacity: 0; /* Initially hide the footer */
-}
+        <section id="calculator">
+            <button class="styled-button" onclick="navigateToSecondPage()">Click Here</button>
+        </section>
 
-@keyframes fadeInFooter {
-    from {
-        opacity: 0; /* Start with opacity 0 */
-    }
-    to {
-        opacity: 1; /* Gradually fade in to opacity 1 */
-    }
-}
-/* Custom styling for the play/pause button */
-#audioButton {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    z-index: 999;
-}
-#audioButton::before {
-    content: "\25B6"; /* Play symbol */
-    font-size: 24px;
-    color: #000;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+        <section id="contact">
+            <button class="styled-button" onclick="navigateToContactPage()">اتصل بي</button>
+        </section>
 
-#audioButton.playing::before {
-    content: "\23F8"; /* Pause symbol */
-}
+        <section id="new-section">
+            <h2>Ksassoua AI :</h2>
+            <div class="slider-container">
+                <label class="slider">
+                    <input type="checkbox" onchange="navigateToAIPage()">
+                    <span class="slider-track">
+                        <span class="slider-thumb"></span>
+                    </span>
+                </label>
+            </div>
+        </section>
+    </main>
 
-#audioButton:focus {
-    outline: none;
-}
+    <footer>
+        <p>&copy; 2024 Younes Ksassoua</p>
+    </footer>
 
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p style="color: #000;">You are Amazing!</p> <!-- Set text color to black -->
+        </div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="backgroundAudio" loop>
+        <source src="hh.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function showBeautifulMessage() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+            setTimeout(function() {
+                modal.style.opacity = 1;
+            }, 10); // Allow time for the display change to be registered before starting opacity transition
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.opacity = 0;
+            setTimeout(function() {
+                modal.style.display = "none";
+            }, 300); // Match this to the transition duration
+        }
+
+        // Close the modal when clicking outside of the modal content
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        function navigateToContactPage() {
+            window.location.href = 'ddd.html';
+        }
+
+        function navigateToAIPage() {
+            var checkbox = document.querySelector('.slider input');
+            if (checkbox.checked) {
+                setTimeout(function() {
+                    window.location.href = 'ai.html';
+                }, 500); // Delay of 500 milliseconds (0.5 seconds)
+            }
+        }
+
+        // Audio Control
+        var audio = document.getElementById("backgroundAudio");
+
+        function toggleBackgroundAudio() {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
 
