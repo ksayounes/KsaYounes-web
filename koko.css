@@ -23,10 +23,10 @@ header {
 .logo {
     width: 200px; /* Adjust size as needed */
     height: 200px; /* Match the width to create a square */
-    border: 2px solid #000000; /* Black border */
+    border: 5px solid #000000; /* Black border */
     border-radius: 50%; /* Make it a circle */
-    padding: 5px; /* Add padding inside the border */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    padding: 10px; /* Add padding inside the border */
+    box-shadow: 0 0 70px rgb(88 167 213); /* Shadow effect */
     display: block;
     margin: 0 auto; /* Center the logo horizontally */
     animation: logoMovement 2s ease infinite alternate; /* Animation for movement */
@@ -49,16 +49,16 @@ main {
 
 /* Contact section styling */
 #contact {
-    background-color: #fff; /* White background */
+    background-color: #89b6f2; /* White background */
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    box-shadow: 0 0 20px rgb(255 255 255); /* Shadow effect */
 }
 
 /* Heading styling */
 h2 {
     margin-bottom: 20px;
-    color: #333; /* Dark gray text color */
+    color: #000; /* Dark gray text color */
 }
 
 /* Form label styling */
@@ -74,25 +74,27 @@ textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc; /* Light gray border */
+    border: 1px solid #000; /* Light gray border */
     border-radius: 5px;
     font-size: 16px;
 }
 
 /* Button styling */
 .styled-button {
-    background-color: #007bff; /* Blue button color */
+    background-color: #003366; /* Blue button color */
     color: #fff; /* White text color */
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 10px 20px; /* Adjust padding for better fit */
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Include box-shadow in transition */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow effect */
 }
 
 .styled-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #00254d; /* Darker blue on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
 }
 
 /* Keyframes for button movement */
