@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beautiful Website</title>
+    <title>موقع جميل</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
     <style>
-        /* Modal background styling */
+        body {
+            font-family: 'Amiri', serif;
+        }
+
+        /* تنسيق خلفية النافذة المنبثقة */
         .modal {
             display: none;
             position: fixed;
@@ -20,7 +25,7 @@
             transition: opacity 0.3s ease;
         }
 
-        /* Modal content styling */
+        /* تنسيق محتوى النافذة المنبثقة */
         .modal-content {
             position: relative;
             margin: 15% auto;
@@ -32,17 +37,16 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             text-align: center;
             animation: slideIn 0.5s forwards;
-            color: #000; /* Changed text color to black */
-            font-family: 'Playfair Display', serif; /* Changed font to Playfair Display */
+            color: #000;
         }
 
-        /* Slide-in animation */
+        /* تحريك الانزلاق */
         @keyframes slideIn {
             from { transform: translateY(-50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
 
-        /* Close button styling */
+        /* تنسيق زر الإغلاق */
         .close {
             position: absolute;
             top: 10px;
@@ -57,7 +61,7 @@
             color: #ff0000;
         }
 
-        /* Slider container */
+        /* حاوية التمرير */
         .slider-container {
             display: flex;
             justify-content: center;
@@ -65,7 +69,7 @@
             margin-top: 20px;
         }
 
-        /* Slider switch */
+        /* زر التمرير */
         .slider {
             position: relative;
             width: 60px;
@@ -112,24 +116,24 @@
 </head>
 <body>
     <header>
-        <h1>Younes's Website</h1>
+        <h1>موقع يونس</h1>
         <button id="audioButton" onclick="toggleBackgroundAudio()"> </button>
     </header>
 
     <main>
         <section id="section1">
-            <h2>A Message for You:</h2>
+            <h2>رسالة لك:</h2>
             <p></p>
             <button class="styled-button" onclick="showBeautifulMessage()">🫶🏼</button>
         </section>
 
         <section id="section2">
-            <h2>A Beautiful Quote for You:</h2>
-            <p>We were not created to stay, so make your soul a beautiful memory ❤</p>
+            <h2>اقتباس جميل لك:</h2>
+            <p>لم نخلق للبقاء، فاجعل روحك ذكرى جميلة ❤</p>
         </section>
 
         <section id="calculator">
-            <button class="styled-button" onclick="navigateToSecondPage()">Click Here</button>
+            <button class="styled-button" onclick="navigateToSecondPage()">زهرة</button>
         </section>
 
         <section id="contact">
@@ -137,7 +141,7 @@
         </section>
 
         <section id="new-section">
-            <h2>Ksassoua AI :</h2>
+            <h2> Ksassoua AI :</h2>
             <div class="slider-container">
                 <label class="slider">
                     <input type="checkbox" onchange="navigateToAIPage()">
@@ -150,21 +154,21 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Younes Ksassoua</p>
+        <p>&copy; Younes Ksasssoua 2024</p>
     </footer>
 
-    <!-- The Modal -->
+    <!-- النافذة المنبثقة -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <p style="color: #000;">You are Amazing!</p> <!-- Set text color to black -->
+            <p style="color: #000;">أنت مذهل!</p>
         </div>
     </div>
 
-    <!-- Audio -->
+    <!-- الصوت -->
     <audio id="backgroundAudio" loop>
         <source src="hh.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
+        متصفحك لا يدعم عنصر الصوت.
     </audio>
 
     <script>
@@ -173,7 +177,7 @@
             modal.style.display = "block";
             setTimeout(function() {
                 modal.style.opacity = 1;
-            }, 10); // Allow time for the display change to be registered before starting opacity transition
+            }, 10);
         }
 
         function closeModal() {
@@ -181,10 +185,9 @@
             modal.style.opacity = 0;
             setTimeout(function() {
                 modal.style.display = "none";
-            }, 300); // Match this to the transition duration
+            }, 300);
         }
 
-        // Close the modal when clicking outside of the modal content
         window.onclick = function(event) {
             var modal = document.getElementById("myModal");
             if (event.target == modal) {
@@ -201,11 +204,10 @@
             if (checkbox.checked) {
                 setTimeout(function() {
                     window.location.href = 'ai.html';
-                }, 500); // Delay of 500 milliseconds (0.5 seconds)
+                }, 500);
             }
         }
 
-        // Audio Control
         var audio = document.getElementById("backgroundAudio");
 
         function toggleBackgroundAudio() {
@@ -219,4 +221,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
