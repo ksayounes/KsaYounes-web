@@ -1,223 +1,77 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع جميل</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Amiri', serif;
-        }
+<body class="bg-gradient-to-t from-blue-950 to-blue-900 text-[#101232] flex justify-center items-center min-h-screen">
+  <h1 class="sr-only">Younes Profile</h1>
+  <input type="checkbox" id="data" class="sr-only peer/data" role="switch" aria-label="Data Toggle">
+  <input type="checkbox" id="content" class="sr-only peer/content" role="switch" aria-label="Content Toggle">
+  <div class="z-10 rounded-xl overflow-hiddenS group relative
+        before:absolute
+        before:w-32
+        before:aspect-square
+        before:rounded-full
+        before:bg-blue-600
+        before:blur-lg 
+        before:right-3
+        before:top-0
+        before:-z-10
 
-        /* تنسيق خلفية النافذة المنبثقة */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.7);
-            transition: opacity 0.3s ease;
-        }
+        after:absolute
+        after:w-32
+        after:aspect-square
+        after:rounded-full
+        after:bg-teal-300
+        after:blur-lg 
+        after:left-4
+        after:bottom-0
+        after:-z-10
 
-        /* تنسيق محتوى النافذة المنبثقة */
-        .modal-content {
-            position: relative;
-            margin: 15% auto;
-            padding: 20px;
-            width: 80%;
-            max-width: 500px;
-            background-color: #fefefe;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            text-align: center;
-            animation: slideIn 0.5s forwards;
-            color: #000;
-        }
+        peer-checked/data:first:[&_#toggle-data>span]:scale-0
+        peer-checked/data:last:[&_#toggle-data>span]:scale-100
 
-        /* تحريك الانزلاق */
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+        peer-checked/data:[&_#panel-data]:-translate-y-14
+        peer-checked/data:[&_#panel-social]:translate-y-12
 
-        /* تنسيق زر الإغلاق */
-        .close {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 25px;
-            color: #aaa;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .close:hover {
-            color: #ff0000;
-        }
-
-        /* حاوية التمرير */
-        .slider-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        /* زر التمرير */
-        .slider {
-            position: relative;
-            width: 60px;
-            height: 34px;
-        }
-
-        .slider input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider .slider-track {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 34px;
-        }
-
-        .slider .slider-thumb {
-            position: absolute;
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-
-        input:checked + .slider-track {
-            background-color: #2196F3;
-        }
-
-        input:checked + .slider-track .slider-thumb {
-            transform: translateX(26px);
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>موقع يونس</h1>
-        <button id="audioButton" onclick="toggleBackgroundAudio()"> </button>
-    </header>
-
-    <main>
-        <section id="section1">
-            <h2>رسالة لك:</h2>
-            <p></p>
-            <button class="styled-button" onclick="showBeautifulMessage()">🫶🏼</button>
-        </section>
-
-        <section id="section2">
-            <h2>اقتباس جميل لك:</h2>
-            <p>لم نخلق للبقاء، فاجعل روحك ذكرى جميلة ❤</p>
-        </section>
-
-        <section id="calculator">
-            <button class="styled-button" onclick="navigateToSecondPage()">زهرة</button>
-        </section>
-
-        <section id="contact">
-            <button class="styled-button" onclick="navigateToContactPage()">اتصل بي</button>
-        </section>
-
-        <section id="new-section">
-            <h2> Ksassoua AI :</h2>
-            <div class="slider-container">
-                <label class="slider">
-                    <input type="checkbox" onchange="navigateToAIPage()">
-                    <span class="slider-track">
-                        <span class="slider-thumb"></span>
-                    </span>
-                </label>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; Younes Ksasssoua 2024</p>
-    </footer>
-
-    <!-- النافذة المنبثقة -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <p style="color: #000;">أنت مذهل!</p>
-        </div>
+        peer-checked/content:[&_#panel-content]:opacity-100
+        peer-checked/content:[&_#panel-content]:pointer-events-auto
+       ">
+    <div class="relative bg-white rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-70 w-60 p-8 text-center">
+      <img src="ok.png" class="rounded-full mx-auto w-20 h-20 border-4 border-white/70 opacity-70 group-hover:opacity-100 transition">
+      <h3 class="font-bold mt-6">Younes Ksassoua</h3>
+      <p class="flex items-center justify-center gap-1 text-sm">
+        <span class="material-symbols-outlined text-lg">location_on</span>
+        Salé, MAR
+      </p>
+      <!-- Make @ksa.younes clickable -->
+      <a href="https://www.instagram.com/ksa.younes/" target="_blank" class="text-blue-500"></a>
+      <label for="content" class="block mt-4 cursor-pointer text-xs rounded-full p-2 px-3 bg-[#101232] text-white transition hover:shadow-xl hover:scale-110">View Content</label>
     </div>
 
-    <!-- الصوت -->
-    <audio id="backgroundAudio" loop>
-        <source src="hh.mp3" type="audio/mpeg">
-        متصفحك لا يدعم عنصر الصوت.
-    </audio>
+    <label id="toggle-data" for="data" class="grid [grid-template-areas:'stack'] place-content-center absolute top-4 right-4 cursor-pointer hover:scale-150 transition 
+            *:[grid-area:stack]
+            *:transition-all
+            *:duration-300
+            *:text-sm
+            last:*:scale-0
+        ">
+      <span class="material-symbols-outlined">density_large</span>
+      <span class="material-symbols-outlined">close</span>
+    </label>
 
-    <script>
-        function showBeautifulMessage() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "block";
-            setTimeout(function() {
-                modal.style.opacity = 1;
-            }, 10);
-        }
+    <div id="panel-data" class="absolute -top-4 left-8 right-8 w-8/10 h-40 -z-20 bg-[#101232] rounded-t-md text-white p-6 pt-4 transition duration-300">
+      <p>My Instagram:</p>
+      <!-- Make @ksa.younes clickable -->
+      <a href="https://www.instagram.com/ksa.younes/" target="_blank">@ksa.younes</a>
+    </div>
 
-        function closeModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.opacity = 0;
-            setTimeout(function() {
-                modal.style.display = "none";
-            }, 300);
-        }
+    <!-- Instagram Logo -->
+    <div class="absolute transition duration-300 -bottom-4 left-8 right-8 p-6 pb-2 w-8/10 h-20 -z-20 bg-[#101232] text-white rounded-b-md flex items-center justify-between gap-2">
+      <a href="https://www.instagram.com/ksa.younes/" target="_blank"><img src="instagram_logo.png" alt="Instagram Logo" class="w-5 h-5 cursor-pointer hover:scale-125 transition"></a>
+    </div>
 
-        window.onclick = function(event) {
-            var modal = document.getElementById("myModal");
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
+    <div class="absolute bg-white inset-0 -z-20 rounded-xl"></div>
 
-        function navigateToContactPage() {
-            window.location.href = 'ddd.html';
-        }
-
-        function navigateToAIPage() {
-            var checkbox = document.querySelector('.slider input');
-            if (checkbox.checked) {
-                setTimeout(function() {
-                    window.location.href = 'ai.html';
-                }, 500);
-            }
-        }
-
-        var audio = document.getElementById("backgroundAudio");
-
-        function toggleBackgroundAudio() {
-            if (audio.paused) {
-                audio.play();
-            } else {
-                audio.pause();
-            }
-        }
-    </script>
-    <script src="script.js"></script>
+    <div id="panel-content" class="absolute bg-white inset-0 opacity-0 pointer-events-none transition-all duration-500 rounded-xl p-8 space-y-4">
+      <h2 class="font-bold">Younes Ksassoua</h2>
+      <p class="text-sm">I'm Younes, 18, passionate about graphic and UI design. With a black belt in Taekwondo, I balance creativity with physical activity. Family and faith are my core, shaping my values and guiding my journey.</p>
+      <label for="content" class="cursor-pointer absolute top-0 right-4  w-6 h-6 text-base text-gray-500 grid place-items-center material-symbols-outlined hover:scale-150  transition">close</label>
+    </div>
+  </div>
 </body>
-</html>
